@@ -8,6 +8,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { FooterComponent } from './footer/footer.component';
 import { EventcardComponent } from './eventcard/eventcard.component';
+import { EventComponent } from './event/event.component';
+import { AppRoutingModule } from './app-routing-module'
 
 @NgModule({
   declarations: [
@@ -15,12 +17,15 @@ import { EventcardComponent } from './eventcard/eventcard.component';
     NavbarComponent,
     JumbotronComponent,
     FooterComponent,
-    EventcardComponent
+    EventcardComponent,
+    EventComponent,
+    ...AppRoutingModule.routableComponenets
   ],
   imports: [
     BrowserModule,
     CollapseModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
