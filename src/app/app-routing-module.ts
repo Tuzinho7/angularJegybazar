@@ -7,13 +7,38 @@ import { EventComponent } from './event/event.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AboutComponent } from './about/about.component';
+import { EventListComponent } from './event-list/event-list.component';
+import { EventDetailComponent } from './event-detail/event-detail.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { TicketListComponent } from './ticket-list/ticket-list.component';
+import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
 
 const routes: Routes = [
     {path: 'home', component: HomeComponent},
-    {path: 'event', component:EventComponent},
-    {path: 'ticket', component:TicketComponent},
+    {   path: 'event', 
+        component:EventComponent, 
+        children:[
+            {path: 'list', component:EventListComponent},
+            {path: 'new', component:EventDetailComponent},
+            {path: ':id/edit', component:EventDetailComponent}
+        ]
+    },
+
+    {path: 'ticket', children:[
+        {path: 'list', component:TicketListComponent },
+        {path: 'new', component:TicketDetailComponent },
+        {path: 'id/bid', component:TicketDetailComponent },
+    ]},
     {path: 'login', component:LoginComponent },
     {path: 'about', component:AboutComponent },
+    {
+        path:'user',
+        children:[
+            {path: '', component:ProfileComponent },
+            {path: 'edit', component:ProfileEditComponent },
+        ]
+    },
     {path: 'registration', component:RegistrationComponent },
     {path: '', redirectTo: '/home', pathMatch: 'full'},
     {path: '**', component:PageNotFoundComponent}
@@ -30,10 +55,17 @@ export class AppRoutingModule {
     static routableComponenets = [
         HomeComponent,
         EventComponent,
+        EventListComponent,
+        EventDetailComponent,
         TicketComponent,
+        TicketListComponent,
+        TicketDetailComponent,
         LoginComponent,
         PageNotFoundComponent,
         RegistrationComponent,
-        AboutComponent
+        ProfileComponent,
+        ProfileEditComponent,
+        AboutComponent,
+        
     ]
 }
