@@ -7,9 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { FooterComponent } from './footer/footer.component';
-import { EventcardComponent } from './eventcard/eventcard.component';
+import { EventcardComponent } from './event/eventcard/eventcard.component';
 import { EventComponent } from './event/event.component';
 import { AppRoutingModule } from './app-routing-module'
+import { EventService } from './shared/event.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { AppRoutingModule } from './app-routing-module'
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

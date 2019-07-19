@@ -7,8 +7,8 @@ import { EventComponent } from './event/event.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AboutComponent } from './about/about.component';
-import { EventListComponent } from './event-list/event-list.component';
-import { EventDetailComponent } from './event-detail/event-detail.component';
+import { EventListComponent } from './event/event-list/event-list.component';
+import { EventDetailComponent } from './event/event-detail/event-detail.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { TicketListComponent } from './ticket-list/ticket-list.component';
@@ -30,16 +30,17 @@ const routes: Routes = [
         {path: 'new', component:TicketDetailComponent },
         {path: 'id/bid', component:TicketDetailComponent },
     ]},
-    {path: 'login', component:LoginComponent },
+    
     {path: 'about', component:AboutComponent },
     {
         path:'user',
         children:[
             {path: '', component:ProfileComponent },
             {path: 'edit', component:ProfileEditComponent },
+            {path: 'registration', component:RegistrationComponent },
+            {path: 'login', component:LoginComponent },
         ]
     },
-    {path: 'registration', component:RegistrationComponent },
     {path: '', redirectTo: '/home', pathMatch: 'full'},
     {path: '**', component:PageNotFoundComponent}
     
